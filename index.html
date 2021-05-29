@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<!-- Your uh your mom um uh uhhhh um sex -->
+	<head>
+		<title>not important</title>
+	</head>
+	<body>
+		<button id="counter" onclick="buttonClick()"></button>
+		<div id="result"></div>
+		
+		<p>Maybe open up DevTools with Ctrl+Shift+I or F12 🤔</p>
+		
+		<script>
+			const string = 'Click me {x} more time{s}';
+			const formatter = new Intl.NumberFormat();
+			
+			// Since this is in the global scope, you can modify the "remaining" variable in the Console tab by reassigning its value: remanining = 0
+			let remaining = 1000000 + 1, active = false;
+			
+			function buttonClick() {
+				const button = document.getElementById('counter');
+				
+				button.innerText = string.replace('{x}', formatter.format(remaining = Math.max(0, --remaining))).replace('{s}', remaining === 1 ? '' : 's');
+				
+				if (remaining <= 0 && active === false && (active = true)) {
+					document.getElementById('result').innerHTML = atob('PGlmcmFtZSBzcmM9Imh0dHBzOi8vZG9jcy5nb29nbGUuY29tL3ByZXNlbnRhdGlvbi9kL2UvMlBBQ1gtMXZTQ3d4OS0yR1ZlUWcxbmRyaTdNOHZWV0xQdkRzOUMtVW1GSFpiWjJpLWl3UXVjY2NrNGFQUUJBNE9qbG5EVlFWWWs3bjFzWjJoRjhqSS0vZW1iZWQ/c3RhcnQ9ZmFsc2UmbG9vcD1mYWxzZSZkZWxheW1zPTYwMDAwIiBmcmFtZWJvcmRlcj0iMCIgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI1NjkiIGFsbG93ZnVsbHNjcmVlbj0idHJ1ZSIgbW96YWxsb3dmdWxsc2NyZWVuPSJ0cnVlIiB3ZWJraXRhbGxvd2Z1bGxzY3JlZW49InRydWUiPjwvaWZyYW1lPg==');
+				}
+			}
+			
+			window.onload = buttonClick;
+		</script>
+	</body>
+</html>
